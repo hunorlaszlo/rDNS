@@ -17,5 +17,16 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - name: Build
-      run: cargo build --verbose
+      run: cargo build --release
+    - name: Archive artifact
+      uses: actions/upload-artifact@v7
+      with:
+        path: |
+          target/release/rdns
+          target/release/rdns-control
+          rdns.toml.example
+          dist/rdns.service
+    
+
+    
         
